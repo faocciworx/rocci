@@ -11,22 +11,10 @@
       href="assets/images/favicon.png"
     />
     <title>Rocci - Gallery</title>
+
+    <!-- CSS -->
     <link href="assets/css/themify-icons.css" rel="stylesheet" />
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="assets/css/flaticon.css" rel="stylesheet" />
-    <link href="assets/css/magnific-popup.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/animate.css" rel="stylesheet" />
-    <link href="assets/css/owl.carousel.css" rel="stylesheet" />
-    <link href="assets/css/owl.theme.css" rel="stylesheet" />
-    <link href="assets/css/slick.css" rel="stylesheet" />
-    <link href="assets/css/slick-theme.css" rel="stylesheet" />
-    <link href="assets/css/swiper.min.css" rel="stylesheet" />
-    <link href="assets/css/nice-select.css" rel="stylesheet" />
-    <link href="assets/css/owl.transitions.css" rel="stylesheet" />
-    <link href="assets/css/jquery.fancybox.css" rel="stylesheet" />
-    <link href="assets/css/odometer-theme-default.css" rel="stylesheet" />
-    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
     <link href="assets/sass/style.css" rel="stylesheet" />
 
     <style>
@@ -34,9 +22,14 @@
         box-sizing: border-box;
       }
 
+      body.modal-open .wpo-site-header {
+        display: none;
+      }
+
       .gallery {
         column-count: 4;
         column-gap: 16px;
+        padding: 20px;
       }
 
       @media (max-width: 1200px) {
@@ -44,11 +37,13 @@
           column-count: 3;
         }
       }
+
       @media (max-width: 800px) {
         .gallery {
           column-count: 2;
         }
       }
+
       @media (max-width: 500px) {
         .gallery {
           column-count: 1;
@@ -66,7 +61,6 @@
 
       .gallery-item img {
         width: 100%;
-        height: auto;
         display: block;
         border-radius: 10px;
         transition: transform 0.3s ease;
@@ -84,9 +78,10 @@
       }
 
       .gallery-item:hover .overlay {
-        background: rgba(255, 255, 255, 0.4); /* white transparent */
+        background: rgba(255, 255, 255, 0.4);
       }
 
+      /* Use ti-eye icon for eye-overlay */
       .eye-overlay {
         position: absolute;
         top: 50%;
@@ -94,18 +89,22 @@
         transform: translate(-50%, -50%);
         background: #fff;
         border-radius: 50%;
-        padding: 10px;
+        padding: 12px;
         opacity: 0;
         transition: opacity 0.3s;
+        font-size: 20px;
+        color: #000;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .gallery-item:hover .eye-overlay {
         opacity: 1;
       }
 
-      /* Modal styles */
       .modal {
         display: none;
         position: fixed;
@@ -114,10 +113,11 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.95);
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        overflow: hidden;
+        padding: 0;
       }
 
       .modal.open {
@@ -127,47 +127,58 @@
       .modal-content-wrapper {
         display: flex;
         align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        gap: 10px;
       }
 
       .modal-content {
         position: relative;
-        max-width: 90vw;
-        max-height: 90vh;
+        background: white;
+        padding: 0;
+        border-radius: 12px;
+        border: 4px solid white;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .modal-content img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 10px;
+        max-width: 80vw;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 12px;
+        display: block;
       }
 
       .modal-close {
         position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(50%, -50%);
-        background: rgba(0, 0, 0, 0.6);
+        top: -15px;
+        right: -15px;
+        background: white;
         border-radius: 50%;
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         font-size: 20px;
-        color: white;
-        border: none;
+        color: black;
+        border: 2px solid #ccc;
         cursor: pointer;
-        line-height: 32px;
+        line-height: 36px;
         text-align: center;
         user-select: none;
-        z-index: 1000;
-        padding: 0;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        z-index: 10001;
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.3s ease;
       }
 
       .modal-close:hover {
-        background: rgba(255, 0, 0, 0.85);
+        background: red;
+        color: white;
       }
 
       .modal-prev,
@@ -175,12 +186,16 @@
         background: transparent;
         border: none;
         color: white;
-        font-size: 2.5rem;
+        font-size: 3rem;
         cursor: pointer;
-        padding: 0 16px;
         display: flex;
         align-items: center;
+        justify-content: center;
         transition: color 0.3s ease;
+        height: 100%;
+        width: 50px;
+        padding: 0;
+        user-select: none;
       }
 
       .modal-prev:hover,
@@ -188,216 +203,114 @@
         color: skyblue;
       }
 
-      .modal-prev:active,
-      .modal-next:active {
-        color: deepskyblue;
+      /* Position left/right buttons fully visible on all screen sizes */
+      @media (max-width: 700px) {
+        .modal-prev,
+        .modal-next {
+          font-size: 2.5rem;
+          width: 40px;
+        }
       }
-
-      .gallery {
-        padding: 20px;
-      }
-
     </style>
   </head>
 
   <body>
-    <!-- start page-wrapper -->
     <div class="page-wrapper">
-      <!-- start preloader -->
-      <div class="preloader">
-        <div class="vertical-centered-box">
-          <div class="content">
-            <div class="loader-circle"></div>
-            <div class="loader-line-mask">
-              <div class="loader-line"></div>
-            </div>
-            <img src="assets/images/preloader.gif" alt="" />
-          </div>
-        </div>
-      </div>
-      <!-- end preloader -->
-      <!-- Start header -->
-      <header id="header">
-        <div class="wpo-site-header wpo-header-style-3">
-          <nav class="navigation navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-              <div class="row align-items-center">
-                <div class="col-lg-3 col-md-3 col-3 d-lg-none dl-block">
-                  <div class="mobail-menu">
-                    <button type="button" class="navbar-toggler open-btn">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar first-angle"></span>
-                      <span class="icon-bar middle-angle"></span>
-                      <span class="icon-bar last-angle"></span>
-                    </button>
-                  </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-6">
-                  <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Rocci</a>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-1 col-1">
-                  <div
-                    id="navbar"
-                    class="collapse navbar-collapse navigation-holder"
-                  >
-                    <button class="menu-close"><i class="ti-close"></i></button>
-                    <ul class="nav navbar-nav mb-2 mb-lg-0">
-                      <li>
-                        <a href="index.html">Home</a>
-                      </li>
-
-                      <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                  </div>
-                  <!-- end of nav-collapse -->
-                </div>
-              </div>
-            </div>
-            <!-- end of container -->
-          </nav>
-        </div>
-      </header>
-      <!-- end of header -->
-      <!-- start wpo-page-title -->
-      <section class="wpo-page-title">
-        <div class="container">
-          <div class="row">
-            <div class="col col-xs-12">
-              <div class="wpo-breadcumb-wrap">
-                <h2>Gallery</h2>
-                <ol class="wpo-breadcumb-wrap">
-                  <li><a href="index.html">Home</a></li>
-                  <li>Gallery</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-          <!-- end row -->
-        </div>
-        <!-- end container -->
-      </section>
-      <!-- end page-title -->
-
-      <!-- start wpo-portfolio-section -->
-
+      <!-- Gallery Section -->
       <section class="gallery" id="gallery">
         <!-- 5 Portrait -->
         <div class="gallery-item">
           <img src="assets/images/gallery/1.jpg" alt="Portrait 1" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/2.jpg" alt="Portrait 2" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/3.jpg" alt="Portrait 3" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/4.jpg" alt="Portrait 4" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/5.jpg" alt="Portrait 5" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
-
         <!-- 7 Landscape -->
         <div class="gallery-item">
           <img src="assets/images/gallery/6.jpg" alt="Landscape 1" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/7.jpg" alt="Landscape 2" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/8.jpg" alt="Landscape 3" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/9.jpg" alt="Landscape 4" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/10.jpg" alt="Landscape 5" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/11.jpg" alt="Landscape 6" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
         <div class="gallery-item">
           <img src="assets/images/gallery/12.jpg" alt="Landscape 7" />
           <div class="overlay"></div>
-          <div class="eye-overlay">&#128065;</div>
+          <div class="eye-overlay"><i class="ti-eye"></i></div>
         </div>
       </section>
 
       <!-- Modal -->
       <div class="modal" id="modal">
         <div class="modal-content-wrapper">
-          <button class="modal-prev" id="modal-prev">&#10094;</button>
+          <button
+            class="modal-prev"
+            id="modal-prev"
+            aria-label="Previous image"
+          >
+            &#10094;
+          </button>
           <div class="modal-content">
-            <span class="modal-close" id="modal-close">&#10006;</span>
+            <button
+              class="modal-close"
+              id="modal-close"
+              aria-label="Close modal"
+            >
+              &#10006;
+            </button>
             <img id="modal-img" src="" alt="" />
           </div>
-          <button class="modal-next" id="modal-next">&#10095;</button>
+          <button class="modal-next" id="modal-next" aria-label="Next image">
+            &#10095;
+          </button>
         </div>
       </div>
-
-      <!-- end wpo-portfolio-section -->
-
-      <!-- start of wpo-site-footer-section -->
-      <footer class="wpo-site-footer-s2">
-        <div class="wpo-lower-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col col-xs-12">
-                <p class="copyright" style="margin-top: 15px">
-                  &copy; 2025 #KhelFaoandtheOne. | All rights reserved. |
-                  <a href="contact.html"> Contact Us </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ft-shape-1">
-          <img src="assets/images/footer-shape-1.svg" alt="" />
-        </div>
-        <div class="ft-shape-2">
-          <img src="assets/images/footer-shape-2.svg" alt="" />
-        </div>
-      </footer>
-      <!-- end of wpo-site-footer-section -->
     </div>
-    <!-- end of page-wrapper -->
 
-    <!-- All JavaScript files
-    ================================================== -->
+    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Plugins for this template -->
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script src="assets/js/jquery-plugin-collection.js"></script>
-    <!-- Custom script for this template -->
-    <script src="assets/js/script.js"></script>
-
-    <!-- Scripts for gallery -->
     <script>
       const modal = document.getElementById("modal");
       const modalImg = document.getElementById("modal-img");
@@ -412,13 +325,14 @@
         modalImg.src = images[index].src;
         modalImg.alt = images[index].alt;
         modal.classList.add("open");
+        document.body.classList.add("modal-open");
         document.body.style.overflow = "hidden";
       }
 
       function closeModal() {
         modal.classList.remove("open");
         modalImg.src = "";
-        modalImg.alt = "";
+        document.body.classList.remove("modal-open");
         document.body.style.overflow = "";
       }
 
