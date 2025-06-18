@@ -10,7 +10,7 @@
       type="image/png"
       href="assets/images/favicon.png"
     />
-    <title>Rocci - Home</title>
+    <title>Rocci</title>
     <link href="assets/css/themify-icons.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/flaticon.css" rel="stylesheet" />
@@ -93,6 +93,9 @@
                       </li>
                       <li id="bananarsvp">
                         <a href="#rsvp">RSVP</a>
+                      </li>
+                      <li>
+                        <a href="#weddetails">Guide</a>
                       </li>
                     </ul>
                   </div>
@@ -829,22 +832,20 @@
       <!-- end wpo-team-section -->
 
       <!-- start of wpo-contact-section -->
-      <section class="wpo-contact-section-s2 section-padding" id="rsvp">
+      <section class="wpo-contact-section-s2 section-padding">
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
               <div class="wpo-contact-section-wrapper">
-                <div class="wpo-section-title">
-                  <div class="wpo-section-title">
-                    <span>RSVP</span>
-                  </div>
+                <div class="wpo-section-title" id="rsvp">
+                  <span>RSVP</span>
                   <h2>Are You Attending?</h2>
                 </div>
 
                 <!-- RSVP Form -->
                 <div class="wpo-contact-form-area" id="rsvp-form-area">
                   <form
-                    action="https://formspree.io/f/xblyrwba"
+                    action="https://formbold.com/s/3N7yN"
                     method="POST"
                     class="contact-validation-active"
                     id="contact-form-main"
@@ -954,6 +955,7 @@
         </div>
       </section>
 
+      <!-- RSVP Form Script -->
       <script>
         const form = document.getElementById("contact-form-main");
         const formArea = document.getElementById("rsvp-form-area");
@@ -983,12 +985,11 @@
 
         attendRadio.addEventListener("change", toggleFields);
         notRadio.addEventListener("change", toggleFields);
+        toggleFields(); // Set initial state on load
 
-        // Initial state on page load
-        toggleFields();
-
+        // Handle form submission via fetch
         form.addEventListener("submit", function (e) {
-          e.preventDefault(); // Prevent default submit
+          e.preventDefault(); // Stop default form submission
 
           if (!form.checkValidity()) {
             form.reportValidity();
@@ -1017,18 +1018,17 @@
             });
         });
       </script>
-
       <!-- end of wpo-contact-section -->
 
       <!-- Dress Code Start -->
 
-      <section class="wpo-service-section section-padding" id="Service">
-        <div class="container">
+      <section class="wpo-service-section section-padding">
+        <div class="container" id="weddetails">
           <div class="row justify-content-center text-center">
             <div class="col-xl-6 col-lg-8 col-md-10 col-12">
               <div class="wpo-section-title">
-                <span>Attire Guide</span>
-                <h2>Dress to Match the Love</h2>
+                <span>Wedding Guide</span>
+                <h2>A Plan Filled with Love</h2>
               </div>
             </div>
           </div>
@@ -1038,216 +1038,86 @@
           <div class="wpo-service-wrap">
             <div class="row">
               <!-- Service Item -->
-              <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
                 <div
                   class="wpo-service-item wow fadeInUp"
                   data-wow-duration="1000ms"
                 >
                   <div class="wpo-service-img text-center">
                     <img
-                      src="assets/images/service/ser-1.png"
+                      src="assets/images/wedhome/wed-1.png"
                       alt="Wedding Dress"
                       class="img-fluid"
                     />
                   </div>
                   <div class="wpo-service-text text-center mt-2">
-                    <h4>Principal Sponsors</h4>
-                    <p>
-                      Ninangs may wear gowns in powder blue, silver, or pastel
-                      shades. Ninongs should wear Barong or suits with pastel
-                      blue accents.
-                    </p>
+                    <h2>Reminders</h2>
                   </div>
                 </div>
               </div>
 
               <!-- Repeat this block for each service -->
-              <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
                 <div
                   class="wpo-service-item wow fadeInUp"
                   data-wow-duration="1200ms"
                 >
                   <div class="wpo-service-img text-center">
                     <img
-                      src="assets/images/service/ser-2.png"
+                      src="assets/images/wedhome/wed-2.png"
                       alt="Accessories"
                       class="img-fluid"
                     />
                   </div>
                   <div class="wpo-service-text text-center mt-2">
-                    <h4>Bridesmen & Groomsmen</h4>
-                    <p>
-                      Coordinated formalwear is required. Suits or Barong paired
-                      with powder blue ties or accessories are preferred.
-                    </p>
+                    <h2>Details</h2>
                   </div>
                 </div>
               </div>
 
-              <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
                 <div
                   class="wpo-service-item wow fadeInUp"
                   data-wow-duration="1400ms"
                 >
                   <div class="wpo-service-img text-center">
                     <img
-                      src="assets/images/service/ser-3.png"
+                      src="assets/images/wedhome/wed-3.png"
                       alt="Flower Bouquet"
                       class="img-fluid"
                     />
                   </div>
                   <div class="wpo-service-text text-center mt-2">
-                    <h4>Guests</h4>
-                    <p>
-                      Formal or semi-formal attire is expected. Ladies may wear
-                      powder blue or soft-toned dresses. Gentlemen may wear
-                      suits or Barong with subtle powder blue details.
-                    </p>
+                    <h2>Attire Guide</h2>
                   </div>
                 </div>
               </div>
 
-              <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
                 <div
                   class="wpo-service-item wow fadeInUp"
                   data-wow-duration="1600ms"
                 >
                   <div class="wpo-service-img text-center">
                     <img
-                      src="assets/images/service/img-4.jpg"
+                      src="assets/images/wedhome/wed-4.png"
                       alt="Wedding Cake"
                       class="img-fluid"
                     />
                   </div>
                   <div class="wpo-service-text text-center mt-2">
-                    <h4>Color Theme</h4>
-                    <p>
-                      Include powder blue or soft neutral accents to complement
-                      the wedding colors.
-                    </p>
+                    <h2>Faqs</h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- end container -->
-      </section>
-
-      <!-- start wpo-event-section -->
-      <section class="wpo-event-section" id="event">
-        <div class="container">
-          <div class="wpo-section-title">
-            <span>Our Wedding</span>
-            <h2>When & Where</h2>
-          </div>
-          <div class="wpo-event-wrap">
-            <div class="row">
-              <div class="col col-lg-4 col-md-6 col-12">
-                <div
-                  class="wpo-event-item wow fadeInUp"
-                  data-wow-duration="1000ms"
-                >
-                  <div class="wpo-event-img">
-                    <div class="wpo-event-img-inner">
-                      <img src="assets/images/event/1.jpg" alt="" />
-                    </div>
-                  </div>
-                  <div class="wpo-event-text">
-                    <div class="title">
-                      <h2>The Preparation</h2>
-                    </div>
-                    <ul>
-                      <li>
-                        Saturday, 24 Jan. 2026
-                        <br />
-                        1:00 PM – 2:30 PM
-                      </li>
-                      <li>Mamita Private Resort and Events Place</li>
-                      <li>(Baluarte, Mabalacat Pampanga)</li>
-                      <li>
-                        <a href="https://maps.app.goo.gl/uTQQQPpurWnJ6Xiv8"
-                          >See Location</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4 col-md-6 col-12">
-                <div
-                  class="wpo-event-item wow fadeInUp"
-                  data-wow-duration="1200ms"
-                >
-                  <div class="wpo-event-img">
-                    <div class="wpo-event-img-inner">
-                      <img src="assets/images/event/2.jpg" alt="" />
-                    </div>
-                  </div>
-                  <div class="wpo-event-text">
-                    <div class="title">
-                      <h2>The Ceremony</h2>
-                    </div>
-                    <ul>
-                      <li>
-                        Saturday, 24 Jan. 2026
-                        <br />
-                        1:00 PM – 2:30 PM
-                      </li>
-                      <li>
-                        Iglesia Ni Cristo Lokal ng Madapdap, Distrito ng
-                        Pampanga North
-                      </li>
-                      <li>
-                        (Guagua Ave. Madapdap Resettlement Mabalacat City
-                        Pampanga)
-                      </li>
-                      <li>
-                        <a href="https://maps.app.goo.gl/vFtb5ARzZW43C2rf6"
-                          >See Location</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4 col-md-6 col-12">
-                <div
-                  class="wpo-event-item wow fadeInUp"
-                  data-wow-duration="1000ms"
-                >
-                  <div class="wpo-event-img">
-                    <div class="wpo-event-img-inner">
-                      <img src="assets/images/event/1.jpg" alt="" />
-                    </div>
-                  </div>
-                  <div class="wpo-event-text">
-                    <div class="title">
-                      <h2>The Reception</h2>
-                    </div>
-                    <ul>
-                      <li>
-                        Saturday, 24 Jan. 2026
-                        <br />
-                        1:00 PM – 2:30 PM
-                      </li>
-                      <li>Mamita Private Resort and Events Place</li>
-                      <li>(Baluarte, Mabalacat Pampanga)</li>
-                      <li>
-                        <a href="https://maps.app.goo.gl/uTQQQPpurWnJ6Xiv8"
-                          >See Location</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div style="text-align: center">
+            <a class="theme-btn" href="wedguide.html">See More</a>
           </div>
         </div>
         <!-- end container -->
       </section>
-      <!-- end wpo-event-section -->
 
       <!-- start of wpo-site-footer-section -->
       <footer class="wpo-site-footer-s2">
