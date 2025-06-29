@@ -127,7 +127,7 @@ img {
 
 @media (max-width: 991px) {
   .section-padding {
-    padding: 90px 0;
+    padding: 70px 0;
   }
 }
 
@@ -144,7 +144,7 @@ img {
 }
 
 .wed-section-padding {
-  padding: 90px 0; /* Base padding for larger screens */
+  padding: 70px 0; /* Base padding for larger screens */
 }
 
 @media (max-width: 991px) {
@@ -4876,46 +4876,47 @@ a.ui-button:active, .ui-button:active,
 .static-hero-s3 .right-shape svg path,
 .static-hero-s5 .right-shape svg path,
 .static-hero-s10 .right-shape svg path {
-  fill: #A5AA9C;
+  fill: #7fc1e9; /* base baby blue */
   -webkit-animation: changeBackgroundColor 6s infinite;
           animation: changeBackgroundColor 6s infinite;
 }
 
 @-webkit-keyframes changeBackgroundColor {
   0% {
-    fill: #A5AA9C;
+    fill: #a3c1e1; /* soft baby blue */
   }
   20% {
-    fill: #A5AA9C;
+    fill: #7fc1e9; /* baby blue */
   }
   50% {
-    fill: #c4ddc4;
+    fill: #c5dfff; /* very light blue */
   }
   70% {
-    fill: #88998d;
+    fill: #8bb9f2; /* medium light blue */
   }
   100% {
-    fill: #A5AA9C;
+    fill: #7fc1e9; /* baby blue */
   }
 }
 
 @keyframes changeBackgroundColor {
   0% {
-    fill: #A5AA9C;
+    fill: #a3c1e1;
   }
   20% {
-    fill: #A5AA9C;
+    fill: #7fc1e9;
   }
   50% {
-    fill: #c4ddc4;
+    fill: #c5dfff;
   }
   70% {
-    fill: #88998d;
+    fill: #8bb9f2;
   }
   100% {
-    fill: #A5AA9C;
+    fill: #7fc1e9;
   }
 }
+
 
 .static-hero-s2 {
   background: #F9FBF7;
@@ -8036,7 +8037,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .wpo-couple-section .shape-1 svg path.stroke-color {
-  stroke: #5D7C78;
+  stroke: #7FC1E9;
 }
 
 /* 3.3 wpo-story-section */
@@ -10470,7 +10471,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .wpo-couple-section-s2 .couple-item-wrap .couple-text-wrap .couple-text-bg .outer-shape svg path {
-  fill: #A5AA9C;
+  fill: #aa9c9c;
 }
 
 .wpo-couple-section-s2 .couple-item-wrap .couple-text-wrap .couple-text-bg .couple-text {
@@ -17655,7 +17656,7 @@ a.ui-button:active, .ui-button:active,
 
 @media (max-width: 991px) {
   .wpo-service-section-s4 {
-    padding: 90px 0;
+    padding: 70px 0;
   }
 }
 
@@ -18540,7 +18541,7 @@ a.ui-button:active, .ui-button:active,
 
 @media (max-width: 991px) {
   .rtl-page .wpo-couple-section-s7 {
-    padding: 90px 0;
+    padding: 70px 0;
   }
 }
 
