@@ -7666,16 +7666,31 @@ a.ui-button:active, .ui-button:active,
 
 .wpo-site-footer .wpo-lower-footer .row,
 .wpo-site-footer-s2 .wpo-lower-footer .row {
-  padding: 0px 0 20px;
+  padding: 20px 0 20px;
   position: relative;
 }
 
 .wpo-site-footer .wpo-lower-footer .copyright,
 .wpo-site-footer-s2 .wpo-lower-footer .copyright {
-  display: inline-block;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   font-size: 18px;
   margin: 0;
+  gap: 8px;
   color: #fff;
+}
+
+.line-item {
+  display: inline;
+}
+
+/* Stack the items vertically on small screens */
+@media (max-width: 576px) {
+  .line-item {
+    display: block;
+  }
 }
 
 .wpo-site-footer .wpo-lower-footer .copyright a,
