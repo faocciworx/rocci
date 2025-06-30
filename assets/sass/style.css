@@ -11079,7 +11079,7 @@ a.ui-button:active, .ui-button:active,
 .wpo-team-section-s2 .wpo-team-wrap .wpo-team-item .wpo-team-text span {
   font-size: 20px;
   font-style: normal;
-  color: #7FC1E9;
+  color: #101010;
 }
 
 @media (max-width: 1199px) {
@@ -11105,7 +11105,7 @@ a.ui-button:active, .ui-button:active,
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(1) .wpo-team-item .team-shape svg path,
 .wpo-team-section-s2 .wpo-team-wrap .col:nth-child(1) .wpo-team-item .team-shape svg path {
-  fill: #A5AA9C;
+  fill: #7FC1E9;
 }
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(2) .wpo-team-item .team-shape svg,
@@ -11124,7 +11124,7 @@ a.ui-button:active, .ui-button:active,
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(2) .wpo-team-item .team-shape svg path,
 .wpo-team-section-s2 .wpo-team-wrap .col:nth-child(2) .wpo-team-item .team-shape svg path {
-  fill: #C8A898;
+  fill: #B8DBF9;
 }
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(3) .wpo-team-item .wpo-team-img,
@@ -11163,7 +11163,7 @@ a.ui-button:active, .ui-button:active,
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(3) .wpo-team-item .team-shape svg path,
 .wpo-team-section-s2 .wpo-team-wrap .col:nth-child(3) .wpo-team-item .team-shape svg path {
-  fill: #A5AA9C;
+  fill: #7FC1E9;
 }
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(4) .wpo-team-item .wpo-team-img,
@@ -11200,7 +11200,7 @@ a.ui-button:active, .ui-button:active,
 
 .wpo-team-section .wpo-team-wrap .col:nth-child(4) .wpo-team-item .team-shape svg path,
 .wpo-team-section-s2 .wpo-team-wrap .col:nth-child(4) .wpo-team-item .team-shape svg path {
-  fill: #C8A898;
+  fill: #B8DBF9;
 }
 
 /* 5.4 wpo-team-section */
