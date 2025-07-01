@@ -14432,7 +14432,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .wpo-service-section .wpo-service-wrap .wpo-service-item .wpo-service-img {
-  height: 266px;
+  /* height: 266px; */
 }
 
 .wpo-service-section .wpo-service-wrap .wpo-service-item .wpo-service-img img {
@@ -14448,7 +14448,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .wpo-service-section .wpo-service-wrap .wpo-service-item .wpo-service-text {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .wpo-service-section .wpo-service-wrap .wpo-service-item .wpo-service-text a {
