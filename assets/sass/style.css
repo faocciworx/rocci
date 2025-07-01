@@ -7846,7 +7846,7 @@ a.ui-button:active, .ui-button:active,
 
 .wpo-couple-section .couple-area .couple-item .couple-img-wrap .c-shape {
   position: absolute;
-  left: -115px;
+  left: -250px;
   top: -10px;
   z-index: -1;
   width: 110%;
@@ -7854,19 +7854,19 @@ a.ui-button:active, .ui-button:active,
 
 @media (max-width: 1199px) {
   .wpo-couple-section .couple-area .couple-item .couple-img-wrap .c-shape {
-    left: -95px;
+    left: -60px;
   }
 }
 
 @media (max-width: 991px) {
   .wpo-couple-section .couple-area .couple-item .couple-img-wrap .c-shape {
-    left: -68px;
+    left: -45px;
   }
 }
 
 @media (max-width: 767px) {
   .wpo-couple-section .couple-area .couple-item .couple-img-wrap .c-shape {
-    left: -76px;
+    left: -30px;
   }
 }
 
@@ -7996,7 +7996,7 @@ a.ui-button:active, .ui-button:active,
 
 @media (max-width: 767px) {
   .wpo-couple-section .couple-area .col:last-child .couple-img-wrap .c-shape {
-    right: -55px;
+    /* right: -55px; */
   }
 }
 
@@ -11694,6 +11694,17 @@ a.ui-button:active, .ui-button:active,
   -animation: kenburn 20s 1.2s alternate infinite;
 }
 
+@media (max-width: 991px) {
+  .wpo-couple-section-s3 .middle-couple-pic,
+  .wpo-couple-section-s4 .middle-couple-pic,
+  .wpo-couple-section-s5 .middle-couple-pic,
+  .wpo-couple-section-s6 .middle-couple-pic,
+  .wpo-couple-section-s7 .middle-couple-pic {
+    margin: 50px auto;
+  }
+}
+
+@media (max-width: 991px) {
   .wpo-couple-section-s3 .middle-couple-pic,
   .wpo-couple-section-s4 .middle-couple-pic,
   .wpo-couple-section-s5 .middle-couple-pic,
@@ -11840,6 +11851,8 @@ a.ui-button:active, .ui-button:active,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+} 
+
 .wpo-couple-section-s4 ul li a,
 .wpo-couple-section-s5 ul li a,
 .wpo-couple-section-s6 ul li a,
@@ -12631,6 +12644,8 @@ a.ui-button:active, .ui-button:active,
 .wpo-contact-section-s3 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons [type="radio"]:not(:checked) + label:after,
 .wpo-contact-section-s4 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons [type="radio"]:not(:checked) + label:after,
 .wpo-contact-section-s5 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons [type="radio"]:not(:checked) + label:after,
+.wpo-contact-section-s6 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons [type="radio"]:not(:checked) + label:after,
+.wpo-contact-section-s7 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons [type="radio"]:not(:checked) + label:after,
 .wpo-contact-section-s8 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons [type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
@@ -24365,7 +24380,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .color-switcher-wrap .color-switcher-item ul li.btn.btn2 {
-  background: #835845;
+  background: #7FC1E9;
 }
 
 .color-switcher-wrap .color-switcher-item ul li.btn.btn3 {
@@ -24435,7 +24450,7 @@ a.ui-button:active, .ui-button:active,
 .color2 .theme-btn-s3,
 .color2 .theme-btn-s2,
 .color2 .theme-btn-s4 {
-  background: #835845;
+  background: #7FC1E9;
 }
 
 .color2 .theme-btn:hover, .color2 .view-cart-btn:hover, .color2 .theme-btn:focus, .color2 .view-cart-btn:focus, .color2 .theme-btn:active, .color2 .view-cart-btn:active,
@@ -24448,7 +24463,7 @@ a.ui-button:active, .ui-button:active,
 .color2 .theme-btn-s4:hover,
 .color2 .theme-btn-s4:focus,
 .color2 .theme-btn-s4:active {
-  background: #835845;
+  background: #7FC1E9;
 }
 
 .color2 .theme-btn:hover:after, .color2 .view-cart-btn:hover:after, .color2 .theme-btn:focus:after, .color2 .view-cart-btn:focus:after, .color2 .theme-btn:active:after, .color2 .view-cart-btn:active:after,
@@ -24461,11 +24476,11 @@ a.ui-button:active, .ui-button:active,
 .color2 .theme-btn-s4:hover:after,
 .color2 .theme-btn-s4:focus:after,
 .color2 .theme-btn-s4:active:after {
-  border: 1px solid #835845;
+  border: 1px solid #7FC1E9;
 }
 
 .color2 .view-cart-btn {
-  background: #835845;
+  background: #7FC1E9;
 }
 
 .color2 .view-cart-btn:hover {
@@ -24474,16 +24489,16 @@ a.ui-button:active, .ui-button:active,
 
 .color2 .view-cart-btn.s1 {
   background: rgba(131, 88, 69, 0.2);
-  color: #835845;
+  color: #7FC1E9;
 }
 
 .color2 .back-to-top {
-  background-color: rgba(131, 88, 69, 0.3);
-  border: 2px solid #835845;
+  background-color: #A3D8F4;
+  border: 2px solid #7FC1E9;
 }
 
 .color2 .back-to-top:hover {
-  background: #835845;
+  background: #7FC1E9;
 }
 
 .color2 .theme-btn, .color2 .view-cart-btn,
@@ -24587,7 +24602,7 @@ a.ui-button:active, .ui-button:active,
 .color2 .blog-sidebar .recent-post-widget .post h4 a:hover,
 .color2 .wpo-blog-pg-section .post h3 a:hover,
 .color2 .wpo-testimonial-section-s3 .wpo-testimonial-items .wpo-testimonial-text-btm h3 {
-  color: #835845;
+  color: #7FC1E9;
 }
 
 .color2 .wpo-product-section .wpo-product-wrap .wpo-product-item .wpo-product-img ul li a:hover,
@@ -24683,14 +24698,14 @@ a.ui-button:active, .ui-button:active,
 .color2 .pagination-wrapper .pg-pagination .active a,
 .color2 .pagination-wrapper .pg-pagination li a:hover,
 .color2 .wpo-pricing-section .wpo-pricing-wrap .wpo-pricing-item .wpo-pricing-bottom .wpo-pricing-bottom-text .view-cart-btn:hover {
-  background: #835845;
+  background: #7FC1E9;
 }
 
 .color2 .wpo-story-section-s4 .story-timeline:after,
 .color2 .wpo-story-section-s5 .story-timeline:after,
 .color2 .wpo-couple-section-s2 .couple-item-wrap:before,
 .color2 .wpo-story-section-s6 .story-timeline:after {
-  background: rgba(131, 88, 69, 0.4);
+  background: #7FC1E9;
 }
 
 .color2 .wpo-story-section-s2 .wpo-story-wrap .wpo-story-item .wpo-story-content .thumb,
@@ -24706,7 +24721,7 @@ a.ui-button:active, .ui-button:active,
 .color2 .wpo-story-section,
 .color2 .wpo-checkout-area .coupon,
 .color2 .wpo-contact-section-s2 {
-  background: rgba(131, 88, 69, 0.1);
+  background: rgb(246, 251, 255);
 }
 
 .color2 .static-hero-s2 .wpo-static-hero-inner .slide-title-sub h3,
@@ -24735,7 +24750,7 @@ a.ui-button:active, .ui-button:active,
 .color2 .pagination-wrapper .pg-pagination .active a,
 .color2 .pagination-wrapper .pg-pagination li a:hover,
 .color2 .wpo-story-section-s2 .wpo-story-wrap .wpo-story-item .wpo-story-content .thumb {
-  border-color: #835845;
+  border-color: #7FC1E9;
 }
 
 .color2 .wpo-story-section-s4 .story-timeline .round-shape,
@@ -24755,7 +24770,7 @@ a.ui-button:active, .ui-button:active,
 .color2 .wpo-service-section-s3 .wpo-service-wrap .wpo-service-item .wpo-service-text,
 .color2 .wpo-service-section-s4 .wpo-service-wrap .wpo-service-item .wpo-service-text,
 .color2 .wpo-story-section-s6 .story-timeline .round-shape-2 {
-  border-color: rgba(131, 88, 69, 0.4);
+  border-color: #7FC1E9;
 }
 
 .color2 .static-hero-s2 .left-shape .left-shape-1 svg path,
@@ -24769,21 +24784,21 @@ a.ui-button:active, .ui-button:active,
 .color2 .wpo-contact-section-s7 .bottom-bg svg .bg-path,
 .color2 .wpo-contact-section-s8 .bottom-bg svg .bg-path,
 .color2 .static-hero-s2 .right-shapes .right-shape-1 svg path {
-  fill: rgba(131, 88, 69, 0.4);
+  fill: #7FC1E9;
 }
 
 .color2 .wpo-couple-section .shape-1 svg path.fill-color {
-  fill: rgba(131, 88, 69, 0.1);
+  fill: rgb(246, 251, 255);
 }
 
 .color2 .static-hero-s2 .left-shape .left-shape-2 svg path,
 .color2 .static-hero .right-shape svg path,
 .color2 .static-hero-s2 .right-shapes .right-shape-2 svg path {
-  fill: rgba(131, 88, 69, 0.5);
+  fill: #7FC1E9
 }
 
 .color2 .wpo-couple-section-s2 .couple-item-wrap .couple-text-wrap .couple-text-bg .outer-shape svg path {
-  fill: #835845;
+  fill: #7FC1E9;
 }
 
 .color2 .static-hero .right-shape svg path {

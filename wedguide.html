@@ -365,8 +365,8 @@
                 <h2 class="year">Holy Matrimony</h2>
                 <span class="month">3:00 PM – 4:00 PM </span>
                 <p>
-                  A sacred union celebrated in love and faith at Iglesia ni
-                  Cristo.
+                  A sacred union warmly and joyfully celebrated in love and
+                  faith at Iglesia ni Cristo.
                 </p>
               </div>
             </div>
@@ -639,7 +639,7 @@
           .timeline-carousel__item {
             padding: 0 10px;
             box-sizing: border-box;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; if I need a margin bottom  */
           }
 
           .timeline-carousel__image {
@@ -691,9 +691,9 @@
           }
 
           .slick-dots li {
-            width: 20px;
-            height: 20px;
-            margin: 0;
+            width: 10px; /* larger clickable area */
+            height: 14px;
+            margin: 0 4px; /* horizontal spacing */
           }
 
           .slick-dots li button {
@@ -704,12 +704,12 @@
 
           .slick-dots li button:before {
             color: #7fc1e9;
-            font-size: 10px;
-            width: 100%;
-            height: 100%;
+            font-size: 14px; /* bigger visible dot */
+            width: 10px;
+            height: 12px;
+            line-height: 14px; /* center vertically */
             display: block;
             text-align: center;
-            /* line-height: 20px; */
             opacity: 0.75;
           }
 
@@ -814,7 +814,7 @@
                 >
                   <div class="wpo-service-img text-center">
                     <img
-                      src="assets/images/service/img-4.jpg"
+                      src="assets/images/service/ser-4.png"
                       alt="Wedding Cake"
                       class="img-fluid mx-auto d-block responsive-img"
                     />
