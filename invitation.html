@@ -10,7 +10,7 @@
       type="image/png"
       href="assets/images/favicon.png"
     />
-    <title>Habibi - Wedding & Wedding Planner HTML5 Template</title>
+    <title>Rocci</title>
     <link href="assets/css/themify-icons.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/flaticon.css" rel="stylesheet" />
@@ -28,119 +28,365 @@
     <link href="assets/css/odometer-theme-default.css" rel="stylesheet" />
     <link href="assets/css/jquery-ui.css" rel="stylesheet" />
     <link href="assets/sass/style.css" rel="stylesheet" />
+
+    <style>
+      :root {
+        --width: 500px;
+        --ratio: 1.625;
+        --color-yellow: #ffce00;
+        --color-red: #ff3c41;
+      }
+
+      * {
+        outline: none;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: radial-gradient(
+          ellipse at center,
+          #7db9e8 0%,
+          #005da6 100%
+        );
+        user-select: none;
+        perspective: 1000px;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      @media (min-width: 320px) and (max-width: 1023px) {
+        body {
+          transform: scale(0.5);
+        }
+      }
+
+      .invitation,
+      .static-hero {
+        width: var(--width);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .envelope {
+        background: var(--color-red);
+        width: 100%;
+        height: calc(var(--width) / var(--ratio));
+        position: relative;
+        z-index: 1;
+      }
+
+      .envelope.is-open::before,
+      .envelope.is-open::after {
+        z-index: -2;
+      }
+
+      .envelope::before,
+      .envelope::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+      }
+
+      .envelope::before {
+        right: 0;
+        border-bottom: 0 solid transparent;
+        border-top: calc(var(--width) / var(--ratio)) solid transparent;
+        border-right: var(--width) solid #d4363a;
+        z-index: 1;
+      }
+
+      .envelope::after {
+        left: 0;
+        border-bottom: 0 solid transparent;
+        border-top: calc(var(--width) / var(--ratio)) solid transparent;
+        border-left: var(--width) solid #b72d2f;
+        z-index: 1;
+      }
+
+      .flap {
+        border-right: calc(var(--width) / 2) solid transparent;
+        border-top: calc((var(--width) / 2) / var(--ratio)) solid #aa3137;
+        border-left: calc(var(--width) / 2) solid transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 50% 0%;
+        z-index: 2;
+      }
+
+      .mask {
+        clip-path: inset(0 0 50% 0);
+        overflow: hidden;
+        position: relative;
+        width: calc(var(--width) * 0.96);
+        height: calc((var(--width) * 1.34) * 3);
+        z-index: 0;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        perspective: 1200px;
+      }
+
+      .card {
+        position: relative;
+        width: calc(var(--width) * 0.96);
+        height: calc(var(--width) * 1.34);
+        margin: auto;
+        transform-style: preserve-3d;
+        transform-origin: 50% 10%;
+        transform: translateY(128%) rotateY(0deg);
+      }
+
+      .face {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        overflow-y: auto;
+        padding: 10px;
+      }
+
+      .face:last-of-type {
+        transform: translateZ(-3px) rotateY(180deg);
+      }
+
+      .front {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .front h1 {
+        color: var(--color-yellow);
+        padding-top: 30px;
+        margin: 0;
+        text-align: center;
+        user-select: none;
+      }
+
+      .face.back {
+        background: white;
+        color: black;
+        font-weight: normal;
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .face.back .container-fluid {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+
+      .face.back .row {
+        display: flex !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+      }
+
+      .face.back [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      button {
+        font-size: 1.25em;
+        padding: 15px 30px;
+        border-radius: 30px;
+        background: var(--color-yellow);
+        color: var(--color-red);
+        border: none;
+        position: absolute;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        left: 50%;
+        top: 200px;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: background 0.3s ease-out, color 0.3s ease-out;
+        z-index: 1;
+      }
+
+      button.invert {
+        color: var(--color-yellow);
+        background: #aa3137;
+      }
+    </style>
   </head>
 
   <body>
-    <!-- start page-wrapper -->
-    <div class="page-wrapper">
-      <!-- start preloader -->
-      <div class="preloader">
-        <div class="vertical-centered-box">
-          <div class="content">
-            <div class="loader-circle"></div>
-            <div class="loader-line-mask">
-              <div class="loader-line"></div>
+    <div class="invitation">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="mask">
+          <div class="card">
+            <div class="face front">
+              <h1>YOU ARE INVITED</h1>
             </div>
-            <img src="assets/images/preloader.gif" alt="" />
-          </div>
-        </div>
-      </div>
-      <!-- end preloader -->
-      <!-- Start header -->
-      <header id="header">
-        <div class="wpo-site-header invitation-header">
-          <ul>
-            <li><a class="navbar-brand" href="index.html">Habibi</a></li>
-            <li>
-              <a class="back-btn" href="index.html"
-                ><i class="ti-back-left"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </header>
-      <!-- end of header -->
-      <!-- start of invitation -->
-      <section
-        class="wpo-invitation-area section-padding"
-        style="
-          background: url(./assets/images/slider/invitation-bg.jpg) no-repeat
-            center center;
-          background-size: cover;
-        "
-      >
-        <div class="container-fluid">
-          <div class="wpo-invitation-wrap">
-            <div class="wpo-invitation-inner-item">
-              <div class="wpo-invitation-inner">
-                <div
-                  class="middle-couple-pic wow zoomIn"
-                  data-wow-duration="1000ms"
-                >
-                  <div class="middle-couple-pic-inner">
-                    <img src="assets/images/couple/3.jpg" alt="" />
-                  </div>
-                  <div class="couple-flower">
-                    <img src="assets/images/couple/couple-flower.png" alt="" />
-                  </div>
-                </div>
-                <div class="wpo-invitation-info">
-                  <h2 class="wow fadeInUp" data-wow-duration="1000ms">
-                    James & Amelia
-                  </h2>
-                  <p class="wow fadeInUp" data-wow-duration="1200ms">
-                    Our Big Day is November 15,2022
-                  </p>
-                  <span class="shape wow fadeInUp" data-wow-duration="1400ms"
-                    ><img src="assets/images/slider/date-shape.png" alt="" />
-                  </span>
-                  <div class="row wow fadeInUp" data-wow-duration="1600ms">
-                    <div class="col col-xs-12">
-                      <div class="clock-grids">
-                        <div id="clock"></div>
+            <div class="face back">
+              <div class="container-fluid">
+                <div class="wpo-invitation-wrap">
+                  <div class="wpo-invitation-inner-item">
+                    <div class="wpo-invitation-inner">
+                      <div
+                        class="middle-couple-pic wow zoomIn"
+                        data-wow-duration="1000ms"
+                      >
+                        <div class="middle-couple-pic-inner">
+                          <img src="assets/images/couple/3.jpg" alt="" />
+                        </div>
+                        <div class="couple-flower">
+                          <img
+                            src="assets/images/couple/couple-flower.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      <div class="wpo-invitation-info">
+                        <h2 class="wow fadeInUp" data-wow-duration="1000ms">
+                          James & Amelia
+                        </h2>
+                        <p class="wow fadeInUp" data-wow-duration="1200ms">
+                          Our Big Day is November 15, 2022
+                        </p>
+                        <span
+                          class="shape wow fadeInUp"
+                          data-wow-duration="1400ms"
+                        >
+                          <img
+                            src="assets/images/slider/date-shape.png"
+                            alt=""
+                          />
+                        </span>
+                      </div>
+
+                      <div class="wpo-event-text">
+                        <ul>
+                          <li class="wow fadeInUp" data-wow-duration="1000ms">
+                            Monday, 12 Apr. 2022 <br />
+                            1:00 PM – 2:30 PM
+                          </li>
+                          <li class="wow fadeInUp" data-wow-duration="1200ms">
+                            4517 Washington Ave. Manchester, Kentucky 39495
+                          </li>
+                          <li class="wow fadeInUp" data-wow-duration="1400ms">
+                            +1 234-567-8910
+                          </li>
+                          <li class="wow fadeInUp" data-wow-duration="1600ms">
+                            <a
+                              class="popup-gmaps"
+                              href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881"
+                              >See Location</a
+                            >
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="wpo-event-text">
-                  <ul>
-                    <li class="wow fadeInUp" data-wow-duration="1000ms">
-                      Monday, 12 Apr. 2022 <br />
-                      1:00 PM – 2:30 PM
-                    </li>
-                    <li class="wow fadeInUp" data-wow-duration="1200ms">
-                      4517 Washington Ave. Manchester, Kentucky 39495
-                    </li>
-                    <li class="wow fadeInUp" data-wow-duration="1400ms">
-                      +1 234-567-8910
-                    </li>
-                    <li class="wow fadeInUp" data-wow-duration="1600ms">
-                      <a
-                        class="popup-gmaps"
-                        href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881"
-                        >See Location</a
-                      >
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- end of invitation slider -->
+      </div>
+      <button>You're Invited!</button>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      const button = $("button");
+      const envelope = $(".envelope");
+      let flipped = false;
 
-    <!-- All JavaScript files
-    ================================================== -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Plugins for this template -->
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script src="assets/js/jquery-plugin-collection.js"></script>
-    <script src="assets/js/moving-animation.js"></script>
-    <script src="assets/js/tilt.jquery.min.js"></script>
-    <!-- Custom script for this template -->
-    <script src="assets/js/script.js"></script>
+      function pullOut() {
+        return new TimelineMax()
+          .to(
+            ".flap",
+            1,
+            { rotationX: 180, ease: Power1.easeInOut },
+            "scaleBack"
+          )
+          .to(
+            ".invitation",
+            1,
+            { scale: 0.8, ease: Power4.easeInOut },
+            "scaleBack"
+          )
+          .set(".flap", { zIndex: 0 })
+          .to(".card", 1, { y: "0%", scaleY: 1.2, ease: Circ.easeInOut })
+          .set(".mask", {
+            overflow: "visible",
+            onComplete: function () {
+              envelope.toggleClass("is-open");
+            },
+          })
+          .to(
+            ".mask",
+            1.3,
+            { clipPath: "inset(0 0 0% 0)", ease: Circ.easeInOut },
+            "moveDown"
+          )
+          .to(
+            ".card",
+            1.3,
+            { y: "100%", scaleY: 1, ease: Circ.easeInOut },
+            "moveDown"
+          )
+          .to(
+            "button",
+            1,
+            { y: "180px", ease: Circ.easeInOut, onComplete: toggleText },
+            "moveDown+=0.15"
+          );
+      }
+
+      function toggleFlip() {
+        if (!envelope.hasClass("is-open")) return;
+        const ry = flipped ? 0 : 180;
+        flipped = !flipped;
+
+        TweenMax.to(".card", 1, {
+          rotationY: ry,
+          ease: Power4.easeInOut,
+          onComplete: () => {
+            if (flipped) {
+              button.fadeOut(); // Hide when flipped
+            } else {
+              button.fadeIn(); // Show when flipped back
+            }
+            toggleText();
+          },
+        });
+      }
+
+      function toggleText() {
+        const text = flipped ? "See you there!" : "Tell me more!";
+        button.toggleClass("invert", flipped).text(text);
+      }
+
+      button.one("click", pullOut);
+      button.on("click", toggleFlip);
+    </script>
   </body>
 </html>

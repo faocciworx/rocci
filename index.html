@@ -302,7 +302,7 @@
                       for trouble, but because his love for computers was bigger
                       than anything else. Meeting Rochele changed everything.
                       Her love helped him grow into a responsible, gentle man
-                      who gives his all to her. Now a proud US Navy sailor, he
+                      who gives his all to her. Now a proud US Military, he
                       stands ready to spend the rest of his life with the woman
                       who believed in him from the very start. Their journey is
                       just beginning, and forever awaits them both.
@@ -853,65 +853,30 @@
               ></path>
             </svg>
 
+            <!-- Decorative Shapes -->
             <div class="shape-1">
               <img src="assets/images/rsvp/shape.svg" alt="" />
             </div>
-            <div
-              class="shape-2 wow fadeInUp"
-              data-wow-duration="1000ms"
-              style="
-                visibility: visible;
-                animation-duration: 1000ms;
-                animation-name: fadeInUp;
-              "
-            >
+            <div class="shape-2 wow fadeInUp" data-wow-duration="1000ms">
               <img src="assets/images/rsvp/shape2.svg" alt="" />
             </div>
-            <div
-              class="shape-3 wow fadeInUp"
-              data-wow-duration="1200ms"
-              style="
-                visibility: visible;
-                animation-duration: 1200ms;
-                animation-name: fadeInUp;
-              "
-            >
+            <div class="shape-3 wow fadeInUp" data-wow-duration="1200ms">
               <img src="assets/images/rsvp/shape3.svg" alt="" />
             </div>
             <div
               class="shape-4 wow fadeInUp animated"
               data-wow-duration="1400ms"
-              style="
-                visibility: visible;
-                animation-duration: 1400ms;
-                animation-name: bounce;
-              "
             >
               <img src="assets/images/rsvp/shape4.svg" alt="" />
             </div>
-            <div
-              class="shape-5 wow fadeInUp"
-              data-wow-duration="1600ms"
-              style="
-                visibility: visible;
-                animation-duration: 1600ms;
-                animation-name: fadeInUp;
-              "
-            >
+            <div class="shape-5 wow fadeInUp" data-wow-duration="1600ms">
               <img src="assets/images/rsvp/shape5.svg" alt="" />
             </div>
-            <div
-              class="shape-6 wow fadeInUp"
-              data-wow-duration="1800ms"
-              style="
-                visibility: visible;
-                animation-duration: 1800ms;
-                animation-name: fadeInUp;
-              "
-            >
+            <div class="shape-6 wow fadeInUp" data-wow-duration="1800ms">
               <img src="assets/images/rsvp/shape6.svg" alt="" />
             </div>
           </div>
+
           <div class="row justify-content-center">
             <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
               <div class="wpo-contact-section-wrapper">
@@ -942,7 +907,7 @@
                         type="email"
                         class="form-control"
                         name="email"
-                        placeholder="Email"
+                        placeholder="Email Address"
                         required
                       />
                     </div>
@@ -954,19 +919,19 @@
                           type="radio"
                           id="attend"
                           name="attendance"
-                          value="Yes, I will be there"
+                          value="Yes, I will attend"
                           checked
                         />
-                        <label for="attend">Yes, I will be there</label>
+                        <label for="attend">Yes, I will attend</label>
                       </p>
                       <p>
                         <input
                           type="radio"
                           id="not"
                           name="attendance"
-                          value="Sorry, I can’t come"
+                          value="Sorry, I can’t attend"
                         />
-                        <label for="not">Sorry, I can’t come</label>
+                        <label for="not">Sorry, I can’t attend</label>
                       </p>
                     </div>
 
@@ -974,7 +939,9 @@
                     <div id="conditional-fields">
                       <div>
                         <select name="guests" class="form-control" required>
-                          <option disabled selected>Number Of Guests</option>
+                          <option disabled selected>
+                            Please select number of guests
+                          </option>
                           <option value="No Guest">No Guest</option>
                           <option value="1">01</option>
                           <option value="2">02</option>
@@ -987,7 +954,9 @@
                           class="form-control last"
                           required
                         >
-                          <option disabled selected>Events Attending</option>
+                          <option disabled selected>
+                            Please select event(s)
+                          </option>
                           <option value="Reception">Reception</option>
                           <option value="Ceremony">Ceremony</option>
                           <option value="Ceremony and Reception">
@@ -1000,7 +969,7 @@
                           name="message"
                           class="form-control last"
                           style="height: 120px"
-                          placeholder="Message or People Attending"
+                          placeholder="Any message or names of additional attendees..."
                         ></textarea>
                       </div>
                     </div>
@@ -1009,13 +978,14 @@
                     <div>
                       <p style="text-align: center; font-style: italic">
                         "Due to limited capacity, we kindly ask that only
-                        invited guests attend. Thank you for understanding."
+                        invited guests attend. Thank you for your
+                        understanding."
                       </p>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="submit-area">
-                      <button type="submit" class="theme-btn">RSVP Now!</button>
+                      <button type="submit" class="theme-btn">Submit</button>
                     </div>
                   </form>
                 </div>
@@ -1025,7 +995,15 @@
                   id="rsvp-success"
                   style="display: none; text-align: center; padding: 20px"
                 >
-                  <h3>We already got your invitation ❤️</h3>
+                  <h3>Your Rsvp Has Been Received with Love 💌</h3>
+                  <p style="margin-top: 30px">
+                    Thank you for taking the time to respond. <br />
+                    Your presence means the world to us, and we are truly
+                    grateful to have you as part of this joyful chapter in our
+                    lives. <br /><br />
+                    With heartfelt appreciation, <br />
+                    <strong>The Future Mr. & Mrs. Layug</strong>
+                  </p>
                 </div>
               </div>
             </div>
@@ -1042,36 +1020,55 @@
         const attendRadio = document.getElementById("attend");
         const notRadio = document.getElementById("not");
 
-        // Toggle fields visibility based on attendance choice
+        const errorMessage = document.createElement("p");
+        errorMessage.style.color = "red";
+        errorMessage.style.fontSize = "14px";
+        errorMessage.style.fontStyle = "italic";
+        errorMessage.style.textAlign = "center";
+        errorMessage.style.margin = "15px 0";
+
         function toggleFields() {
           if (notRadio.checked) {
             conditionalFields.style.display = "none";
-            Array.from(
-              conditionalFields.querySelectorAll("select, textarea")
-            ).forEach((el) => {
-              el.required = false;
-            });
+            conditionalFields
+              .querySelectorAll("select, textarea")
+              .forEach((el) => (el.required = false));
           } else {
             conditionalFields.style.display = "block";
-            Array.from(conditionalFields.querySelectorAll("select")).forEach(
-              (el) => {
-                el.required = true;
-              }
-            );
+            conditionalFields
+              .querySelectorAll("select")
+              .forEach((el) => (el.required = true));
           }
         }
 
         attendRadio.addEventListener("change", toggleFields);
         notRadio.addEventListener("change", toggleFields);
-        toggleFields(); // Set initial state on load
+        toggleFields(); // Initial state
 
-        // Handle form submission via fetch
         form.addEventListener("submit", function (e) {
-          e.preventDefault(); // Stop default form submission
+          e.preventDefault();
 
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
+          const guestField = form.querySelector("select[name='guests']");
+          const eventField = form.querySelector("select[name='events']");
+          const messageField = form.querySelector("textarea[name='message']");
+          const submitArea = form.querySelector(".submit-area");
+
+          if (formArea.contains(errorMessage)) {
+            formArea.removeChild(errorMessage);
+          }
+
+          if (attendRadio.checked) {
+            const isGuestsValid = guestField && guestField.value !== "";
+            const isEventsValid = eventField && eventField.value !== "";
+            const isMessageValid =
+              messageField && messageField.value.trim() !== "";
+
+            if (!isGuestsValid || !isEventsValid || !isMessageValid) {
+              errorMessage.textContent =
+                "Please fill in all required RSVP details before submitting.";
+              formArea.insertBefore(errorMessage, submitArea);
+              return;
+            }
           }
 
           const formData = new FormData(form);
@@ -1088,15 +1085,18 @@
                 formArea.style.display = "none";
                 successMessage.style.display = "block";
               } else {
-                alert("Oops! Something went wrong. Please try again.");
+                alert(
+                  "Oops! Something went wrong while submitting. Please try again."
+                );
               }
             })
             .catch(() => {
-              alert("There was a network error. Please try again later.");
+              alert(
+                "Network error. Please check your connection and try again later."
+              );
             });
         });
       </script>
-      <!-- end of wpo-contact-section -->
 
       <!-- Dress Code Start -->
 

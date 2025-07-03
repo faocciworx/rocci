@@ -5048,7 +5048,7 @@ a.ui-button:active, .ui-button:active,
 .static-hero-s2 .static-hero-right .static-hero-img .static-hero-img-inner .hero-img-inner-shape {
   position: absolute;
   left: -52px;
-  top: 70px;
+  top: 10px;
   width: 120%;
 }
 
@@ -7933,7 +7933,7 @@ a.ui-button:active, .ui-button:active,
   display: block;
   text-align: center;
   color: #A3D8F4;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .wpo-couple-section .couple-area .couple-item .couple-text ul li a:hover {
@@ -8735,7 +8735,7 @@ a.ui-button:active, .ui-button:active,
 .wpo-portfolio-section .grid .img-holder .hover-content i,
 .wpo-portfolio-section-s2 .grid .img-holder .hover-content i {
   font-size: 30px;
-  color: #101010;
+  color: #7FC1E9;
 }
 
 .wpo-portfolio-section .grid .img-holder:before,
@@ -9163,7 +9163,9 @@ a.ui-button:active, .ui-button:active,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px 0;
+  justify-content: space-between; /* auto distributes the space */
+  flex-wrap: wrap; /* allows wrap if needed on smaller screens */
+  white-space: nowrap; /* prevents label wrapping */
 }
 
 @media (max-width: 575px) {
@@ -9175,7 +9177,10 @@ a.ui-button:active, .ui-button:active,
   .wpo-contact-section-s6 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons,
   .wpo-contact-section-s7 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons,
   .wpo-contact-section-s8 .wpo-contact-section-wrapper .wpo-contact-form-area .radio-buttons {
-    display: block;
+    display: flex;
+    justify-content: space-between; /* auto distributes the space */
+    flex-wrap: wrap; /* allows wrap if needed on smaller screens */
+    white-space: nowrap; /* prevents label wrapping */
   }
 }
 
