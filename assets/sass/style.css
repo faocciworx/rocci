@@ -21184,9 +21184,9 @@ a.ui-button:active, .ui-button:active,
   padding-left: 0;
 }
 
-.exprience-wrap p {
+/* .exprience-wrap p {
   color: #5d5851;
-}
+} */
 
 .exprience-wrap h2 {
   margin-bottom: 20px;
@@ -21448,7 +21448,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .education-area {
-  max-width: 600px;
+  max-width: auto;
 }
 
 .education-area ul {
