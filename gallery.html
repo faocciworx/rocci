@@ -337,13 +337,13 @@
       <!-- Tabs -->
       <div class="gallery-tabs">
         <button class="tab-button active" data-year="all">All</button>
-        <button class="tab-button" data-year="2019">2019</button>
-        <button class="tab-button" data-year="2020">2020</button>
-        <button class="tab-button" data-year="2021">2021</button>
-        <button class="tab-button" data-year="2022">2022</button>
-        <button class="tab-button" data-year="2023">2023</button>
-        <button class="tab-button" data-year="2024">2024</button>
         <button class="tab-button" data-year="2025">2025</button>
+        <button class="tab-button" data-year="2024">2024</button>
+        <button class="tab-button" data-year="2023">2023</button>
+        <button class="tab-button" data-year="2022">2022</button>
+        <button class="tab-button" data-year="2021">2021</button>
+        <button class="tab-button" data-year="2020">2020</button>
+        <button class="tab-button" data-year="2019">2019</button>
       </div>
 
       <!-- Gallery Section -->
@@ -555,7 +555,100 @@
     <script src="assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Latest to Oldest Pop up -->
     <script>
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      const closeBtn = document.getElementById("modal-close");
+      const nextBtn = document.getElementById("modal-next");
+      const prevBtn = document.getElementById("modal-prev");
+      let images = Array.from(document.querySelectorAll(".gallery-item img"));
+      let currentIndex = -1;
+
+      function openModal(index) {
+        currentIndex = index;
+        modalImg.src = images[index].src;
+        modalImg.alt = images[index].alt;
+        modal.classList.add("open");
+        document.body.classList.add("modal-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modal.classList.remove("open");
+        modalImg.src = "";
+        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "";
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        openModal(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        openModal(currentIndex);
+      }
+
+      document.querySelectorAll(".eye-overlay").forEach((eye, index) => {
+        eye.addEventListener("click", () => openModal(index));
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      nextBtn.addEventListener("click", showNext);
+      prevBtn.addEventListener("click", showPrev);
+
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("open")) return;
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowRight") showNext();
+        if (e.key === "ArrowLeft") showPrev();
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Tabs logic with latest-to-first ordering
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const galleryContainer = document.querySelector(".gallery"); // parent wrapper
+      let galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const selectedYear = btn.getAttribute("data-year");
+
+          // Filter + sort items
+          let filteredItems = galleryItems.filter((item) => {
+            const itemYear = item.getAttribute("data-year");
+            return selectedYear === "all" || selectedYear === itemYear;
+          });
+
+          // Sort descending (latest year first)
+          filteredItems.sort((a, b) => {
+            return (
+              parseInt(b.getAttribute("data-year")) -
+              parseInt(a.getAttribute("data-year"))
+            );
+          });
+
+          // Clear and re-append in sorted order
+          galleryContainer.innerHTML = "";
+          filteredItems.forEach((item) => {
+            galleryContainer.appendChild(item);
+          });
+
+          // Refresh images list for modal navigation
+          images = Array.from(document.querySelectorAll(".gallery-item img"));
+        });
+      });
+    </script>
+    <!-- Regular Year Popup -->
+    <!-- <script>
       const modal = document.getElementById("modal");
       const modalImg = document.getElementById("modal-img");
       const closeBtn = document.getElementById("modal-close");
@@ -629,6 +722,6 @@
           });
         });
       });
-    </script>
+    </script> -->
   </body>
 </html>
