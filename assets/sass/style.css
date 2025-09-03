@@ -122,24 +122,44 @@ img {
 }
 
 .section-padding {
-  padding: 120px 0;
+  padding: 100px 0; /* default for large screens */
 }
 
 @media (max-width: 991px) {
   .section-padding {
-    padding: 70px 0;
+    padding: 70px 0; /* medium screens */
   }
 }
 
 @media (max-width: 767px) {
   .section-padding {
-    padding: 80px 0;
+    padding: 50px 0; /* tablets and small screens */
+  }
+}
+/* Wedlu and Wedgu Section Padding */
+.wedlu-section-padding,
+.wedgu-section-padding {
+  padding: 80px 0; /* large screens */
+}
+
+@media (max-width: 991px) {
+  .wedlu-section-padding,
+  .wedgu-section-padding {
+    padding: 60px 0; /* medium screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .wedlu-section-padding,
+  .wedgu-section-padding {
+    padding: 40px 0; /* tablets/small screens */
   }
 }
 
 @media (max-width: 575px) {
-  .section-padding {
-    padding: 60px 0;
+  .wedlu-section-padding,
+  .wedgu-section-padding {
+    padding: 30px 0; /* mobile screens */
   }
 }
 
@@ -2159,17 +2179,18 @@ a.ui-button:active, .ui-button:active,
     position: relative;
   }
   .wpo-site-header #navbar > ul > li > a:before {
-  content: ""; /* must be on pseudo-element */
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 4px;
-  /* background: #A3D8F4; */
-  opacity: 0;
-  visibility: hidden;
-  border-radius: 3px;
-  transition: all 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    /* background: #A3D8F4; */
+    content: "";
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 3px;
   }
   .wpo-site-header #navbar > ul > li > a:hover:before,
   .wpo-site-header #navbar > ul > li.current-menu-item a:before,
@@ -9825,12 +9846,35 @@ a.ui-button:active, .ui-button:active,
 }
 
 @media (max-width: 767px) {
-  .wpo-event-section,
-  .wpo-event-section-s2,
-  .wpo-event-section-s4 {
+  .wpo-event-section, {
     padding-bottom: 70px;
   }
 }
+
+.wpo-eventgu-section {
+  padding-bottom: 0px; /* large screens */
+}
+
+@media (max-width: 991px) {
+  .wpo-eventgu-section {
+    padding-bottom: 0px; /* medium screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .wpo-eventgu-section {
+    margin-top: 20px;
+    padding-bottom: 0px; /* small screens */
+  }
+}
+
+@media (max-width: 575px) {
+  .wpo-eventgu-section {
+    margin-top: 20px;
+    padding-bottom: 0px; /* mobile screens */
+  }
+}
+
 
 .wpo-event-section .wpo-event-item,
 .wpo-event-section-s2 .wpo-event-item,

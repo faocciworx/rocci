@@ -1045,7 +1045,7 @@ function smoothScrolling($scrollLinks, $topOffset) {
         = COUNTDOWN CLOCK
     -------------------------------------------*/
   if ($("#clock").length) {
-    $("#clock").countdown("2026-1-24 20:30:00", function (event) {
+    $("#clock").countdown("2026-1-16 20:30:00", function (event) {
       var $this = $(this).html(
         event.strftime(
           "" +
