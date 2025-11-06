@@ -10,142 +10,142 @@
   /*------------------------------------------
         = ALL ESSENTIAL FUNCTIONS
     -------------------------------------------*/
-function toggleMobileNavigation() {
-  var navbar = $(".navigation-holder");
-  var toggleBtn = $(".mobail-menu .open-btn");
-  var hamburgerIcon = toggleBtn.find(".hamburger-icon");
-  var closeIcon = toggleBtn.find(".close-icon");
+  function toggleMobileNavigation() {
+    var navbar = $(".navigation-holder");
+    var toggleBtn = $(".mobail-menu .open-btn");
+    var hamburgerIcon = toggleBtn.find(".hamburger-icon");
+    var closeIcon = toggleBtn.find(".close-icon");
 
-  // Toggle menu on toggle button click
-  toggleBtn.on("click", function (e) {
-    e.stopImmediatePropagation();
-    navbar.toggleClass("slideInn");
-    hamburgerIcon.toggleClass("hidden");
-    closeIcon.toggleClass("hidden");
-    return false;
-  });
+    // Toggle menu on toggle button click
+    toggleBtn.on("click", function (e) {
+      e.stopImmediatePropagation();
+      navbar.toggleClass("slideInn");
+      hamburgerIcon.toggleClass("hidden");
+      closeIcon.toggleClass("hidden");
+      return false;
+    });
 
-  // Close menu when a link is clicked (mobile only)
-  $(".navigation-holder ul li a").on("click", function () {
-    if ($(window).width() <= 991) {
-      navbar.removeClass("slideInn");
-      hamburgerIcon.removeClass("hidden");
-      closeIcon.addClass("hidden");
-    }
-  });
-
-  // Close menu on clicking outside nav and toggle button
-  $(document).on("click", function (e) {
-    if (navbar.hasClass("slideInn")) {
-      const isInsideNav = $(e.target).closest(".navigation-holder").length > 0;
-      const isInsideMenuWrapper = $(e.target).closest(".mobail-menu").length > 0;
-
-      if (!isInsideNav && !isInsideMenuWrapper) {
+    // Close menu when a link is clicked (mobile only)
+    $(".navigation-holder ul li a").on("click", function () {
+      if ($(window).width() <= 991) {
         navbar.removeClass("slideInn");
         hamburgerIcon.removeClass("hidden");
         closeIcon.addClass("hidden");
       }
-    }
-  });
-
-  // Prevent clicks inside nav from closing menu
-  $(".navigation-holder").on("click", function (e) {
-    e.stopPropagation();
-  });
-}
-
-toggleMobileNavigation();
-
-function toggleClassForSmallNav() {
-  var windowWidth = window.innerWidth;
-  var mainNav = $("#navbar > ul");
-
-  if (windowWidth <= 991) {
-    mainNav.addClass("small-nav");
-  } else {
-    mainNav.removeClass("small-nav");
-  }
-}
-
-function smallNavFunctionality() {
-  var windowWidth = window.innerWidth;
-  var mainNav = $(".navigation-holder");
-  var smallNav = $(".navigation-holder > .small-nav");
-  var subMenu = smallNav.find(".sub-menu");
-  var megamenu = smallNav.find(".mega-menu");
-  var menuItemWidthSubMenu = smallNav.find(".menu-item-has-children > a");
-
-  if (windowWidth <= 991) {
-    subMenu.hide();
-    megamenu.hide();
-    menuItemWidthSubMenu.on("click", function (e) {
-      var $this = $(this);
-      $this.siblings().slideToggle();
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      $this.toggleClass("rotate");
     });
-  } else if (windowWidth > 991) {
-    mainNav.find(".sub-menu").show();
-    mainNav.find(".mega-menu").show();
-  }
-}
 
-smallNavFunctionality();
+    // Close menu on clicking outside nav and toggle button
+    $(document).on("click", function (e) {
+      if (navbar.hasClass("slideInn")) {
+        const isInsideNav = $(e.target).closest(".navigation-holder").length > 0;
+        const isInsideMenuWrapper = $(e.target).closest(".mobail-menu").length > 0;
 
-function activeMenuItem($links) {
-  var top = $(window).scrollTop(),
-    windowHeight = $(window).height(),
-    documentHeight = $(document).height(),
-    cur_pos = top + 2,
-    sections = $("section"),
-    nav = $links,
-    nav_height = nav.outerHeight();
-
-  sections.each(function () {
-    var top = $(this).offset().top - nav_height,
-      bottom = top + $(this).outerHeight();
-
-    if (cur_pos >= top && cur_pos <= bottom) {
-      nav.find("> ul > li > a").parent().removeClass("current-menu-item");
-      nav
-        .find("a[href='#" + $(this).attr("id") + "']")
-        .parent()
-        .addClass("current-menu-item");
-    } else if (cur_pos === 2) {
-      nav.find("> ul > li > a").parent().removeClass("current-menu-item");
-    }
-  });
-}
-
-function smoothScrolling($scrollLinks, $topOffset) {
-  var links = $scrollLinks;
-  var topGap = $topOffset;
-
-  links.on("click", function () {
-    if (
-      location.pathname.replace(/^\//, "") ===
-        this.pathname.replace(/^\//, "") &&
-      location.hostname === this.hostname
-    ) {
-      var target = $(this.hash);
-      target = target.length
-        ? target
-        : $("[name=" + this.hash.slice(1) + "]");
-      if (target.length) {
-        $("html, body").animate(
-          {
-            scrollTop: target.offset().top - topGap,
-          },
-          1000,
-          "easeInOutExpo"
-        );
-        return false;
+        if (!isInsideNav && !isInsideMenuWrapper) {
+          navbar.removeClass("slideInn");
+          hamburgerIcon.removeClass("hidden");
+          closeIcon.addClass("hidden");
+        }
       }
+    });
+
+    // Prevent clicks inside nav from closing menu
+    $(".navigation-holder").on("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  toggleMobileNavigation();
+
+  function toggleClassForSmallNav() {
+    var windowWidth = window.innerWidth;
+    var mainNav = $("#navbar > ul");
+
+    if (windowWidth <= 991) {
+      mainNav.addClass("small-nav");
+    } else {
+      mainNav.removeClass("small-nav");
     }
-    return false;
-  });
-}
+  }
+
+  function smallNavFunctionality() {
+    var windowWidth = window.innerWidth;
+    var mainNav = $(".navigation-holder");
+    var smallNav = $(".navigation-holder > .small-nav");
+    var subMenu = smallNav.find(".sub-menu");
+    var megamenu = smallNav.find(".mega-menu");
+    var menuItemWidthSubMenu = smallNav.find(".menu-item-has-children > a");
+
+    if (windowWidth <= 991) {
+      subMenu.hide();
+      megamenu.hide();
+      menuItemWidthSubMenu.on("click", function (e) {
+        var $this = $(this);
+        $this.siblings().slideToggle();
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        $this.toggleClass("rotate");
+      });
+    } else if (windowWidth > 991) {
+      mainNav.find(".sub-menu").show();
+      mainNav.find(".mega-menu").show();
+    }
+  }
+
+  smallNavFunctionality();
+
+  function activeMenuItem($links) {
+    var top = $(window).scrollTop(),
+      windowHeight = $(window).height(),
+      documentHeight = $(document).height(),
+      cur_pos = top + 2,
+      sections = $("section"),
+      nav = $links,
+      nav_height = nav.outerHeight();
+
+    sections.each(function () {
+      var top = $(this).offset().top - nav_height,
+        bottom = top + $(this).outerHeight();
+
+      if (cur_pos >= top && cur_pos <= bottom) {
+        nav.find("> ul > li > a").parent().removeClass("current-menu-item");
+        nav
+          .find("a[href='#" + $(this).attr("id") + "']")
+          .parent()
+          .addClass("current-menu-item");
+      } else if (cur_pos === 2) {
+        nav.find("> ul > li > a").parent().removeClass("current-menu-item");
+      }
+    });
+  }
+
+  function smoothScrolling($scrollLinks, $topOffset) {
+    var links = $scrollLinks;
+    var topGap = $topOffset;
+
+    links.on("click", function () {
+      if (
+        location.pathname.replace(/^\//, "") ===
+        this.pathname.replace(/^\//, "") &&
+        location.hostname === this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length
+          ? target
+          : $("[name=" + this.hash.slice(1) + "]");
+        if (target.length) {
+          $("html, body").animate(
+            {
+              scrollTop: target.offset().top - topGap,
+            },
+            1000,
+            "easeInOutExpo"
+          );
+          return false;
+        }
+      }
+      return false;
+    });
+  }
 
 
   $("body").on("click", function () {
@@ -987,9 +987,9 @@ function smoothScrolling($scrollLinks, $topOffset) {
 
     $("#amount").val(
       "$" +
-        $("#slider-range").slider("values", 0) +
-        " - $" +
-        $("#slider-range").slider("values", 1)
+      $("#slider-range").slider("values", 0) +
+      " - $" +
+      $("#slider-range").slider("values", 1)
     );
   }
 
@@ -1045,15 +1045,15 @@ function smoothScrolling($scrollLinks, $topOffset) {
         = COUNTDOWN CLOCK
     -------------------------------------------*/
   if ($("#clock").length) {
-    $("#clock").countdown("2026-1-16 20:30:00", function (event) {
+    $("#clock").countdown("2026-1-23 20:30:00", function (event) {
       var $this = $(this).html(
         event.strftime(
           "" +
-            // + '<div class="box"><div><div class="time">%m</div> <span>Month</span> </div></div>'
-            '<div class="box"><div><div class="time">%D</div> <span>Days</span> </div></div>' +
-            '<div class="box"><div><div class="time">%H</div> <span>Hours</span> </div></div>' +
-            '<div class="box"><div><div class="time">%M</div> <span>Mins</span> </div></div>' +
-            '<div class="box"><div><div class="time">%S</div> <span>Secs</span> </div></div>'
+          // + '<div class="box"><div><div class="time">%m</div> <span>Month</span> </div></div>'
+          '<div class="box"><div><div class="time">%D</div> <span>Days</span> </div></div>' +
+          '<div class="box"><div><div class="time">%H</div> <span>Hours</span> </div></div>' +
+          '<div class="box"><div><div class="time">%M</div> <span>Mins</span> </div></div>' +
+          '<div class="box"><div><div class="time">%S</div> <span>Secs</span> </div></div>'
         )
       );
     });
@@ -1062,14 +1062,14 @@ function smoothScrolling($scrollLinks, $topOffset) {
         = COUNTDOWN CLOCK
     -------------------------------------------*/
   if ($("#clock2").length) {
-    $("#clock2").countdown("2024-11-30 20:30:00", function (event) {
+    $("#clock2").countdown("2026-1-23 20:30:00", function (event) {
       var $this = $(this).html(
         event.strftime(
           "" +
-            '<div class="box"><div><div class="time">%D</div> <span>Days</span> </div></div>' +
-            '<div class="box"><div><div class="time">%H</div> <span>Hours</span> </div></div>' +
-            '<div class="box"><div><div class="time">%M</div> <span>Mins</span> </div></div>' +
-            '<div class="box"><div><div class="time">%S</div> <span>Secs</span> </div></div>'
+          '<div class="box"><div><div class="time">%D</div> <span>Days</span> </div></div>' +
+          '<div class="box"><div><div class="time">%H</div> <span>Hours</span> </div></div>' +
+          '<div class="box"><div><div class="time">%M</div> <span>Mins</span> </div></div>' +
+          '<div class="box"><div><div class="time">%S</div> <span>Secs</span> </div></div>'
         )
       );
     });
@@ -1079,14 +1079,14 @@ function smoothScrolling($scrollLinks, $topOffset) {
         = COUNTDOWN CLOCK
     -------------------------------------------*/
   if ($("#clock3").length) {
-    $("#clock3").countdown("2023-11-01 20:30:00", function (event) {
+    $("#clock3").countdown("2026-1-23 20:30:00", function (event) {
       var $this = $(this).html(
         event.strftime(
           "" +
-            '<div class="box"><div><div class="time">%D</div> <span>أيام</span> </div></div>' +
-            '<div class="box"><div><div class="time">%H</div> <span>ساعات</span> </div></div>' +
-            '<div class="box"><div><div class="time">%M</div> <span>دقيقة</span> </div></div>' +
-            '<div class="box"><div><div class="time">%S</div> <span>ثانية</span> </div></div>'
+          '<div class="box"><div><div class="time">%D</div> <span>أيام</span> </div></div>' +
+          '<div class="box"><div><div class="time">%H</div> <span>ساعات</span> </div></div>' +
+          '<div class="box"><div><div class="time">%M</div> <span>دقيقة</span> </div></div>' +
+          '<div class="box"><div><div class="time">%S</div> <span>ثانية</span> </div></div>'
         )
       );
     });
