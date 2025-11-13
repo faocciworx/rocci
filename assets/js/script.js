@@ -215,9 +215,34 @@
   }
   if ($("#scene-2").length) {
     var scene = document.getElementById("scene-2");
-    var parallax = new Parallax(scene);
-  }
+    var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
 
+    if (isMobile) {
+      // 📱 Light parallax for mobile
+      var parallax = new Parallax(scene, {
+        relativeInput: true,
+        hoverOnly: false,
+        scalarX: 2,  // very gentle
+        scalarY: 2,
+        frictionX: 0.1,
+        frictionY: 0.1,
+        originX: 0.5,
+        originY: 0.3  // lifted up a bit
+      });
+    } else {
+      // 💻 Normal parallax for desktop
+      var parallax = new Parallax(scene, {
+        relativeInput: true,
+        hoverOnly: false,
+        scalarX: 6,
+        scalarY: 6,
+        frictionX: 0.1,
+        frictionY: 0.1,
+        originX: 0.5,
+        originY: 0.3
+      });
+    }
+  }
   if ($(".pointparallax").length) {
     $(".pointparallax").pointparallax();
   }
