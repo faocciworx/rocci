@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Faocci Layug" />
+    <meta name="title" content="You're Invited – Faocci & Rochele's Wedding" />
+    <meta name="description"
+        content="You're invited to witness the beginning of our forever. Explore the details of our special day, share in our joy, and let love lead the way — RSVP online and be part of our journey." />
+    <title>Rocci - Gallery</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link href="assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/owl.carousel.css" rel="stylesheet" />
+    <link href="assets/css/owl.theme.css" rel="stylesheet" />
+    <link href="assets/css/slick.css" rel="stylesheet" />
+    <link href="assets/css/slick-theme.css" rel="stylesheet" />
+    <link href="assets/css/swiper.min.css" rel="stylesheet" />
+    <link href="assets/css/nice-select.css" rel="stylesheet" />
+    <link href="assets/css/owl.transitions.css" rel="stylesheet" />
+    <link href="assets/css/jquery.fancybox.css" rel="stylesheet" />
+    <link href="assets/css/odometer-theme-default.css" rel="stylesheet" />
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
+    <link href="assets/sass/style.css" rel="stylesheet" />
+
+    <!-- Isotope JS -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <style>
+        /* Centered Tabs */
+        .gallery-filters {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-filters ul {
+            list-style: none;
+            padding-left: 0;
+            display: inline-flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery-filters li {
+            cursor: pointer;
+            padding: 8px 18px;
+            border: 1px solid #7FC1E9;
+            background-color: #fff;
+            color: #000;
+            font-weight: 500;
+            transition: 0.3s all;
+            border-radius: 0;
+        }
+
+        .gallery-filters li.active {
+            background-color: #7FC1E9;
+            color: #fff;
+        }
+
+        /* Portfolio Grid – CSS Grid + Isotope FitRows */
+        .portfolio-grids {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; /* spacing between images */
+        }
+
+        .portfolio-grids .grid {
+            position: relative;
+        }
+
+        .portfolio-grids .img-holder {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-grids .img-holder img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* Hover Eye Icon */
+        .hover-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: 0.3s;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        .img-holder:hover .hover-content {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header id="header">
+            <div class="wpo-site-header wpo-header-style-3">
+                <nav class="navigation navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand" href="index.html">Rocci</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-1 col-1">
+                                <div id="navbar" class="collapse navbar-collapse navigation-holder">
+                                    <ul class="nav navbar-nav mb-2 mb-lg-0">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Page Title -->
+        <section class="wpo-page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="wpo-breadcumb-wrap">
+                            <h2>Gallery</h2>
+                            <ol class="wpo-breadcumb-wrap">
+                                <li><a href="index.html">Home</a></li>
+                                <li>Gallery</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="wpo-portfolio-section-s2 section-padding pt-120" id="gallery">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Filter Tabs -->
+                        <div class="sortable-gallery">
+                            <div class="gallery-filters">
+                                <ul>
+                                    <li class="active" data-filter="*">All</li>
+                                    <li data-filter=".y2025">2025</li>
+                                    <li data-filter=".y2024">2024</li>
+                                    <li data-filter=".y2023">2023</li>
+                                    <li data-filter=".y2022">2022</li>
+                                    <li data-filter=".y2021">2021</li>
+                                </ul>
+                            </div>
+
+                            <div class="portfolio-grids gallery-container clearfix">
+                                <!-- 2025 Images -->
+                                <div class="grid y2025">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/7.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/7.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2025">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/12.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/12.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2025">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/13.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/13.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2025">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/14.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/14.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2025">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/15.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/15.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- 2024 Images -->
+                                <div class="grid y2024">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/8.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/8.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2024">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/16.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/16.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2024">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/17.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/17.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2024">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/18.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/18.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2024">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/19.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/19.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- 2023 Images -->
+                                <div class="grid y2023">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/9.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/9.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2023">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/20.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/20.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2023">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/21.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/21.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2023">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/22.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/22.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2023">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/23.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/23.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- 2022 Images -->
+                                <div class="grid y2022">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/10.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/10.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2022">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/24.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/24.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2022">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/25.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/25.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2022">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/26.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/26.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2022">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/27.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/27.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- 2021 Images -->
+                                <div class="grid y2021">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/11.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/11.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2021">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/28.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/28.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2021">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/29.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/29.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2021">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/30.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/30.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="grid y2021">
+                                    <div class="img-holder">
+                                        <a href="assets/images/portfolio/31.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                            <img src="assets/images/portfolio/31.jpg" alt="">
+                                            <div class="hover-content"><i class="ti-eye"></i></div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="wpo-site-footer-s2">
+            <div class="wpo-lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xs-12">
+                            <p class="copyright">
+                                <span class="line-item">&copy; 2025 #KhelFaoandtheOne.</span>
+                                <span class="line-item">All rights reserved.</span>
+                                <a href="contact.html" class="line-item">Contact Us</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-plugin-collection.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <!-- Gallery Filter Script using Isotope -->
+    <script>
+        $(document).ready(function () {
+            var $grid = $('.portfolio-grids').isotope({
+                itemSelector: '.grid',
+                layoutMode: 'fitRows' // <-- use fitRows instead of masonry
+            });
+
+            $(".gallery-filters li").click(function () {
+                $(".gallery-filters li").removeClass("active");
+                $(this).addClass("active");
+                var filterValue = $(this).data("filter");
+                $grid.isotope({ filter: filterValue });
+            });
+
+            $(window).resize(function () {
+                $grid.isotope('layout');
+            });
+        });
+    </script>
+</body>
+
+</html>
