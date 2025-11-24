@@ -2,6 +2,15 @@ $(document).ready(function () {
   const indicator = $(".modernScrollIndicator");
   if (!indicator.length) return;
 
+  // Hide initially with CSS
+  indicator.css("opacity", 0);
+
+  // Show after 2 seconds
+  setTimeout(() => {
+    indicator.animate({ opacity: 1 }, 600); // fade in smoothly
+  }, 2000);
+
+  // Keep fade on scroll behavior
   let lastScrollTop = 0;
 
   $(window).on("scroll", function () {
