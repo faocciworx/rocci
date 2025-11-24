@@ -166,8 +166,9 @@
 /* Overlay helper */
 
 .fancybox-lock {
-    overflow: visible !important;
-    width: auto;
+    overflow: hidden !important; /* hides taskbar/scrollbar */
+    height: 100vh !important;
+    width: 100vw !important;
 }
 
 .fancybox-lock body {
@@ -257,6 +258,16 @@
 	background: #000;
 	background: rgba(0, 0, 0, .8);
 }
+
+/* Hide navbar completely during Fancybox */
+.navigation-holder.fancybox-hide {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    z-index: 0 !important; /* Push behind Fancybox overlay */
+}
+
 
 /*Retina graphics!*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
