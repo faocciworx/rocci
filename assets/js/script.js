@@ -10,7 +10,10 @@
   /*------------------------------------------
         = ALL ESSENTIAL FUNCTIONS
     -------------------------------------------*/
-  function toggleMobileNavigation() {
+// ---------------------------
+// Mobile Navigation
+// ---------------------------
+function toggleMobileNavigation() {
     var navbar = $(".navigation-holder");
     var toggleBtn = $(".mobail-menu .open-btn");
     var hamburgerIcon = toggleBtn.find(".hamburger-icon");
@@ -18,56 +21,62 @@
 
     // Toggle menu on toggle button click
     toggleBtn.on("click", function (e) {
-      e.stopImmediatePropagation();
-      navbar.toggleClass("slideInn");
-      hamburgerIcon.toggleClass("hidden");
-      closeIcon.toggleClass("hidden");
-      return false;
+        e.stopImmediatePropagation();
+        navbar.toggleClass("slideInn");
+        hamburgerIcon.toggleClass("hidden");
+        closeIcon.toggleClass("hidden");
+        return false;
     });
 
     // Close menu when a link is clicked (mobile only)
     $(".navigation-holder ul li a").on("click", function () {
-      if ($(window).width() <= 991) {
-        navbar.removeClass("slideInn");
-        hamburgerIcon.removeClass("hidden");
-        closeIcon.addClass("hidden");
-      }
+        if ($(window).width() <= 991) {
+            navbar.removeClass("slideInn");
+            hamburgerIcon.removeClass("hidden");
+            closeIcon.addClass("hidden");
+        }
     });
 
     // Close menu on clicking outside nav and toggle button
     $(document).on("click", function (e) {
-      if (navbar.hasClass("slideInn")) {
-        const isInsideNav = $(e.target).closest(".navigation-holder").length > 0;
-        const isInsideMenuWrapper = $(e.target).closest(".mobail-menu").length > 0;
+        if (navbar.hasClass("slideInn")) {
+            const isInsideNav = $(e.target).closest(".navigation-holder").length > 0;
+            const isInsideMenuWrapper = $(e.target).closest(".mobail-menu").length > 0;
 
-        if (!isInsideNav && !isInsideMenuWrapper) {
-          navbar.removeClass("slideInn");
-          hamburgerIcon.removeClass("hidden");
-          closeIcon.addClass("hidden");
+            if (!isInsideNav && !isInsideMenuWrapper) {
+                navbar.removeClass("slideInn");
+                hamburgerIcon.removeClass("hidden");
+                closeIcon.addClass("hidden");
+            }
         }
-      }
     });
 
     // Prevent clicks inside nav from closing menu
     $(".navigation-holder").on("click", function (e) {
-      e.stopPropagation();
+        e.stopPropagation();
     });
-  }
+}
+toggleMobileNavigation();
 
-  toggleMobileNavigation();
-
-  function toggleClassForSmallNav() {
+// ---------------------------
+// Small Nav Class Toggle
+// ---------------------------
+function toggleClassForSmallNav() {
     var windowWidth = window.innerWidth;
     var mainNav = $("#navbar > ul");
 
     if (windowWidth <= 991) {
-      mainNav.addClass("small-nav");
+        mainNav.addClass("small-nav");
     } else {
-      mainNav.removeClass("small-nav");
+        mainNav.removeClass("small-nav");
     }
-  }
+}
+toggleClassForSmallNav();
 
-  function smallNavFunctionality() {
+// ---------------------------
+// Small Nav Functionality
+// ---------------------------
+function smallNavFunctionality() {
     var windowWidth = window.innerWidth;
     var mainNav = $(".navigation-holder");
     var smallNav = $(".navigation-holder > .small-nav");
@@ -76,76 +85,101 @@
     var menuItemWidthSubMenu = smallNav.find(".menu-item-has-children > a");
 
     if (windowWidth <= 991) {
-      subMenu.hide();
-      megamenu.hide();
-      menuItemWidthSubMenu.on("click", function (e) {
-        var $this = $(this);
-        $this.siblings().slideToggle();
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        $this.toggleClass("rotate");
-      });
+        subMenu.hide();
+        megamenu.hide();
+        menuItemWidthSubMenu.on("click", function (e) {
+            var $this = $(this);
+            $this.siblings().slideToggle();
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            $this.toggleClass("rotate");
+        });
     } else if (windowWidth > 991) {
-      mainNav.find(".sub-menu").show();
-      mainNav.find(".mega-menu").show();
+        mainNav.find(".sub-menu").show();
+        mainNav.find(".mega-menu").show();
     }
-  }
+}
+smallNavFunctionality();
 
-  smallNavFunctionality();
-
-  function activeMenuItem($links) {
+// ---------------------------
+// Active Menu Highlight
+// ---------------------------
+function activeMenuItem($links) {
     var top = $(window).scrollTop(),
-      windowHeight = $(window).height(),
-      documentHeight = $(document).height(),
-      cur_pos = top + 2,
-      sections = $("section"),
-      nav = $links,
-      nav_height = nav.outerHeight();
+        windowHeight = $(window).height(),
+        documentHeight = $(document).height(),
+        cur_pos = top + 2,
+        sections = $("section"),
+        nav = $links,
+        nav_height = nav.outerHeight();
 
     sections.each(function () {
-      var top = $(this).offset().top - nav_height,
-        bottom = top + $(this).outerHeight();
+        var top = $(this).offset().top - nav_height,
+            bottom = top + $(this).outerHeight();
 
-      if (cur_pos >= top && cur_pos <= bottom) {
-        nav.find("> ul > li > a").parent().removeClass("current-menu-item");
-        nav
-          .find("a[href='#" + $(this).attr("id") + "']")
-          .parent()
-          .addClass("current-menu-item");
-      } else if (cur_pos === 2) {
-        nav.find("> ul > li > a").parent().removeClass("current-menu-item");
-      }
+        if (cur_pos >= top && cur_pos <= bottom) {
+            nav.find("> ul > li > a").parent().removeClass("current-menu-item");
+            nav.find("a[href='#" + $(this).attr("id") + "']").parent().addClass("current-menu-item");
+        } else if (cur_pos === 2) {
+            nav.find("> ul > li > a").parent().removeClass("current-menu-item");
+        }
     });
-  }
+}
 
-  function smoothScrolling($scrollLinks, $topOffset) {
+// ---------------------------
+// Smooth Scrolling
+// ---------------------------
+function smoothScrolling($scrollLinks, $topOffset) {
     var links = $scrollLinks;
     var topGap = $topOffset;
 
     links.on("click", function () {
-      if (
-        location.pathname.replace(/^\//, "") ===
-        this.pathname.replace(/^\//, "") &&
-        location.hostname === this.hostname
-      ) {
-        var target = $(this.hash);
-        target = target.length
-          ? target
-          : $("[name=" + this.hash.slice(1) + "]");
-        if (target.length) {
-          $("html, body").animate(
-            {
-              scrollTop: target.offset().top - topGap,
-            },
-            1000,
-            "easeInOutExpo"
-          );
-          return false;
+        if (
+            location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") &&
+            location.hostname === this.hostname
+        ) {
+            var target = $(this.hash);
+            target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+            if (target.length) {
+                $("html, body").animate(
+                    {
+                        scrollTop: target.offset().top - topGap,
+                    },
+                    1000,
+                    "easeInOutExpo"
+                );
+                return false;
+            }
         }
-      }
-      return false;
+        return false;
     });
-  }
+}
+
+// ---------------------------
+// Fancybox Navbar Hide Fix
+// ---------------------------
+$(document).ready(function() {
+    $(document).on('afterShow.fb', function() {
+        $('.navigation-holder').css({
+            'position': 'fixed',
+            'top': '-100px',      // move offscreen
+            'opacity': '0',
+            'pointer-events': 'none',
+            'visibility': 'hidden'
+        }).addClass('fancybox-hide');
+    });
+
+    $(document).on('beforeClose.fb', function() {
+        $('.navigation-holder').css({
+            'position': '',
+            'top': '',
+            'opacity': '',
+            'pointer-events': '',
+            'visibility': ''
+        }).removeClass('fancybox-hide');
+    });
+});
+
 
 
   $("body").on("click", function () {

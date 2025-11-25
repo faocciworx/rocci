@@ -25089,6 +25089,114 @@ a.ui-button:active,
 }
 
 
+/* Modernize Mouse */
+:root {
+  --msi-color: #7FC1E9;
+}
+
+/* Wrapper */
+.modernScrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+/* ---------------- Desktop Mouse + Text ---------------- */
+.msi-mouse-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: msiTextFade 2s infinite ease-in-out;
+}
+
+.msi-mouse {
+  width: 28px;
+  height: 50px;
+  border: 2px solid var(--msi-color);
+  border-radius: 20px;
+  position: relative;
+  background: rgba(127,193,233,0.08);
+  box-shadow: 0 0 10px rgba(127,193,233,0.3);
+}
+
+.msi-wheel {
+  width: 6px;
+  height: 10px;
+  background: var(--msi-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: msiWheelAnim 1.4s infinite ease-in-out;
+}
+
+@keyframes msiWheelAnim {
+  0% { transform: translateX(-50%) translateY(0); opacity:1; }
+  50% { transform: translateX(-50%) translateY(12px); opacity:0.6; }
+  100% { transform: translateX(-50%) translateY(18px); opacity:0; }
+}
+
+/* Mouse Text Animation */
+@keyframes msiTextFade {
+  0% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-4px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
+
+/* ---------------- Mobile Modern SVG Arrow ---------------- */
+.msi-mobile-arrow {
+  display: none;
+}
+
+.msi-modern-arrow {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--msi-color);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: msiArrowAnim 1.4s infinite ease-in-out;
+}
+
+@keyframes msiArrowAnim {
+  0% { transform: translateY(0); opacity:0.6; }
+  50% { transform: translateY(6px); opacity:1; }
+  100% { transform: translateY(0); opacity:0.6; }
+}
+
+/* Text for Desktop */
+.msi-text {
+  font-size: 0.85rem;
+  color: var(--msi-color);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: center;
+  opacity: 0.85;
+  font-family: inherit;
+  margin-top: 4px;
+}
+
+/* Responsive Switching */
+@media (max-width: 768px) {
+  .msi-mouse-text { display: none; }
+  .msi-mobile-arrow { display: flex; }
+}
+
+@media (min-width: 769px) {
+  .msi-mouse-text { display: flex; }
+  .msi-mobile-arrow { display: none; }
+}
+
+
 
 /*--------------------------------------------------------------
 20. color-switcher-section
